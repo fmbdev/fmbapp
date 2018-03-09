@@ -16,7 +16,7 @@ class NivelController extends Controller
     public function getAll()
     {
         $niveles = Nivel::all();
-        dd($niveles);
+        return response()->json(["niveles" => $niveles], 200);
     }
 
     /**

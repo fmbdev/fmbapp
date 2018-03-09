@@ -16,7 +16,7 @@ class CarreraController extends Controller
     public function getAll()
     {
         $carreras = Carrera::all();
-        dd($carreras);
+        return response()->json(["carreras" => $carreras], 200);
     }
 
     /**
