@@ -16,7 +16,7 @@ class CarreraController extends Controller
     public function getAll()
     {
         $carreras = Carrera::all();
-        return response()->json(["carreras" => $carreras], 200);
+        return response()->json($carreras, 200);
     }
 
     /**

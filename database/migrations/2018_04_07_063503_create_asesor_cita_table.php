@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNivelTable extends Migration
+class CreateAsesorCitaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateNivelTable extends Migration
      */
     public function up()
     {
-        Schema::create('nivel', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('Asesor_cita', function (Blueprint $table) {
+            $table->string('Nombre_Asesor');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateNivelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nivel');
+        Schema::dropIfExists('Asesor_cita');
     }
 }

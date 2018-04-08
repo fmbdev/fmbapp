@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\cronImportCsv'
     ];
 
     /**
@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //Esta tarea de debera cambiar para que se ejecute cada mes 
+         $schedule->command('command:import_csv')
+                  ->everyMinute();
     }
 
     /**

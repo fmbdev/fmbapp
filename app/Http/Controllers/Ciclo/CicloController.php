@@ -17,7 +17,7 @@ class CicloController extends Controller
     public function getAll()
     {
         $ciclos = Ciclo::all();
-        return response()->json(["ciclos" => $ciclos], 200);
+        return response()->json($ciclos, 200);
     }
 
     /**

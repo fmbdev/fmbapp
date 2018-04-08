@@ -9,6 +9,6 @@ class Ciclo extends Model
     protected $table = "ciclo";
 
     protected $fillable = [
-        "name"
+        'Id','crmit_name', 'crmit_codigounico'
     ];
 }

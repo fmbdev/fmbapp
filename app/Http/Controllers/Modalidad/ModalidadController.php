@@ -16,7 +16,7 @@ class ModalidadController extends Controller
     public function getAll()
     {
         $modalidades = Modalidad::all();
-        return response()->json(["modalidades" => $modalidades], 200);
+        return response()->json($modalidades, 200);
     }
 
     /**

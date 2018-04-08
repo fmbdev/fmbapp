@@ -11,25 +11,26 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 $router->group(['prefix' => 'api'], function() use ($router){
+
+    /*--- Asesor Cita ---*/
+    $router->get('/asesor', [
+        'uses'  => 'Asesor\AsesorController@getAll'
+    ]);
 
     /*--- Campus Route ---*/
     $router->get('/campus', [
         'uses'  => 'Campus\CampusController@getAll'
     ]);
 
-    /*--- Nivel Route ---*/
-    $router->get('/nivel', [
-        'uses'  => 'Nivel\NivelController@getAll'
+    /*--- CampusCita Route ---*/
+    $router->get('/campuscita', [
+        'uses'  => 'CampusCita\CampusCitaController@getAll'
     ]);
 
-    /*--- Modalidad Route ---*/
-    $router->get('/modalidad', [
-        'uses'  => 'Modalidad\ModalidadController@getAll'
+    /*--- Canales Route ---*/
+    $router->get('/canales', [
+        'uses'  => 'Canales\CanalesController@getAll'
     ]);
 
     /*--- Carrera Route ---*/
@@ -42,5 +43,109 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'Ciclo\CicloController@getAll'
     ]);
 
+    /*--- Cita Prospeccion Route ---*/
+    $router->get('/cita_prospeccion', [
+        'uses'  => 'CitaProspeccion\CitaProspeccionController@getAll'
+    ]);
+
+    /*--- Csq Route ---*/
+    $router->get('/csq', [
+        'uses'  => 'Csq\CsqController@getAll'
+    ]);
+
+    /*--- Escuela Empresa Route ---*/
+    $router->get('/escuela_empresa', [
+        'uses'  => 'EscuelaEmpresa\EscuelaEmpresaController@getAll'
+    ]);
+
+    /*--- Genero Route ---*/
+    $router->get('/genero', [
+        'uses'  => 'Genero\GeneroController@getAll'
+    ]);
+
+    /*--- Modalidad Route ---*/
+    $router->get('/modalidad', [
+        'uses'  => 'Modalidad\ModalidadController@getAll'
+    ]);
+
+    /*--- Nivel de Estudios Route ---*/
+    $router->get('/nivel_estudios', [
+        'uses'  => 'Nivel\NivelController@getAll'
+    ]);
+
+    /*--- Paginas Landing Route ---*/
+    $router->get('/paginas_landing', [
+        'uses'  => 'PaginasLanding\PaginasLandingController@getAll'
+    ]);
+
+    /*--- Parentesco Route ---*/
+    $router->get('/parentesco', [
+        'uses'  => 'Parentesco\ParentescoController@getAll'
+    ]);
+
+    /*--- Programacion Route ---*/
+    $router->get('/programacion', [
+        'uses'  => 'Programacion\ProgramacionController@getAll'
+    ]);
+
+    /*--- Palabras Basura Route ---*/
+    $router->get('/palabras_basura', [
+        'uses'  => 'PalabrasBasura\PalabrasBasuraController@getAll'
+    ]);
+
+    /*--- Sin Correo Route ---*/
+    $router->get('/sin_correo', [
+        'uses'  => 'SinCorreo\SinCorreoController@getAll'
+    ]);
+
+    /*--- Sub Tipo Actividad Route ---*/
+    $router->get('/sub_tipo_actividad', [
+        'uses'  => 'SubTipoActividad\SubTipoActividadController@getAll'
+    ]);
+
+    /*--- Territorio Route ---*/
+    $router->get('/territorio', [
+        'uses'  => 'Territorio\TerritorioController@getAll'
+    ]);
+
+    /*--- Tipificacion Route ---*/
+    $router->get('/tipificacion', [
+        'uses'  => 'Tipificacion\TipificacionController@getAll'
+    ]);
+
+    /*--- Tipo de Actividad Route ---*/
+    $router->get('/tipo_actividad', [
+        'uses'  => 'TipoActividad\TipoActividadController@getAll'
+    ]);
+
+    /*--- Tipo de Referente Route ---*/
+    $router->get('/tipo_referente', [
+        'uses'  => 'TipoReferente\TipoReferenteController@getAll'
+    ]);
+
+    /*--- Transferencia Route ---*/
+    $router->get('/transferencia', [
+        'uses'  => 'Transferencia\TransferenciaController@getAll'
+    ]);
+
+    /*--- Turno Route ---*/
+    $router->get('/turno', [
+        'uses'  => 'Turno\TurnoController@getAll'
+    ]);
+
+    /*--- Usuarios Route ---*/
+    $router->get('/usuario', [
+        'uses'  => 'Usuario\UsuarioController@getAll'
+    ]);
+
+    /*--- Area Interes Route ---*/
+    $router->get('/area_interes', [
+        'uses'  => 'AreaInteres\AreaInteresController@getAll'
+    ]);
+
+    /*--- Import CSV ---*/
+    $router->get('/pnn', [
+        'uses' => 'Pnn\PnnController@getAll'
+    ]);
 
 });

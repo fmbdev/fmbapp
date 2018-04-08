@@ -9,6 +9,6 @@ class Modalidad extends Model
     protected $table = "modalidad";
 
     protected $fillable = [
-        "name"
+        "crmit_codigounico", "crmit_name"
     ];
 }

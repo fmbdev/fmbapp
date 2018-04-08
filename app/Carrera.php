@@ -9,6 +9,6 @@ class Carrera extends Model
     protected $table = "carrera";
 
     protected $fillable = [
-        "name"
+        'ID', 'productnumber', 'crmit_nombremostrarcliente'
     ];
 }

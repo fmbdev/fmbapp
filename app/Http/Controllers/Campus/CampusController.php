@@ -16,7 +16,7 @@ class CampusController extends Controller
     public function getAll()
     {
         $campus = Campus::all();
-        return response()->json(['campus' => $campus], 200);
+        return response()->json($campus, 200);
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarreraTable extends Migration
+class CreateParentescoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCarreraTable extends Migration
      */
     public function up()
     {
-        Schema::create('carrera', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        Schema::create('Parentesco', function (Blueprint $table) {
+            $table->string('crmit_codigounico');
+            $table->string('crmit_name');
+            $table->integer('crmit_quedefine');
+            $table->integer('id');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateCarreraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carrera');
+        Schema::dropIfExists('Parentesco');
     }
 }

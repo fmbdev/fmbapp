@@ -9,6 +9,6 @@ class Campus extends Model
     protected $table = "campus";
 
     protected $fillable = [
-        "name"
+        "crmit_name", "crmit_codigounico", "crmit_tb_campusid"
     ];
 }
