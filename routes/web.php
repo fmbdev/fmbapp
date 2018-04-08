@@ -93,6 +93,10 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'PalabrasBasura\PalabrasBasuraController@getAll'
     ]);
 
+    $router->get('/palabras_basura/{id}', [
+        'uses'  => 'PalabrasBasura\PalabrasBasuraController@show'
+    ]);
+
     /*--- Sin Correo Route ---*/
     $router->get('/sin_correo', [
         'uses'  => 'SinCorreo\SinCorreoController@getAll'

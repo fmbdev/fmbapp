@@ -48,7 +48,12 @@ class PalabrasBasuraController extends Controller
      */
     public function show($id)
     {
-        //
+        $palabrabasura = PalabrasBasura::find($id);
+        if($palabrabasura){
+            return response()->json(["success" => $id], 200);
+        }else{
+            return response()->json(["success" => false], 200);
+        }
     }
 
     /**
