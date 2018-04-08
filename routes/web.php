@@ -147,6 +147,46 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'AreaInteres\AreaInteresController@getAll'
     ]);
 
+    /*--- Web Service ---*/
+    $router->get('/landing', [
+        'uses'  => 'WebService\UserController@getCars'
+    ]);
+
+    $router->post('/landing/valid-input', [
+        'uses'  => 'WebService\UserController@landingValidNameAction'
+    ]);
+
+    $router->post('/landing/login', [
+        'uses'  => 'WebService\UserController@landingLoginAction'
+    ]);
+
+    $router->post('/landing/register', [
+        'uses'  => 'WebService\UserController@landingRegisterAction'
+    ]);
+    
+    $router->post('/landing/register-promotion', [
+        'uses'  => 'WebService\UserController@landingRegisterPromotionAction'
+    ]);
+
+    $router->post('/landing/register-solo', [
+        'uses'  => 'WebService\UserController@landingRegisterSoloAction'
+    ]);
+
+    $router->post('/landing/referido-referente', [
+        'uses'  => 'WebService\UserController@landingReferidoReferenteAction'
+    ]);
+
+    $router->post('/landing/referido-web', [
+        'uses'  => 'WebService\UserController@landingReferidoReferenteWebAction'
+    ]);
+
+    $router->post('/landing/search', [
+        'uses'  => 'WebService\UserController@landingSearchAction'
+    ]);
+    $router->post('/landing/search-inbound', [
+        'uses'  => 'WebService\UserController@landingSearchAInboundction'
+    ]);
+
     /*--- Import CSV ---*/
     $router->get('/pnn', [
         'uses' => 'Pnn\PnnController@getAll'
