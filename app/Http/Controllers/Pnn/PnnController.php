@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pnn;
 
+use File;
 use App\Pnn;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -16,11 +17,11 @@ class PnnController extends Controller
      */
     public function getAll()
     {
-       ini_set('memory_limit', '1024M');
+       /*ini_set('memory_limit', '1024M');
        ini_set('max_execution_time', 0);
 
        $pnns = Pnn::all();
-       return response()->json($pnns, 200);
+       return response()->json($pnns, 200);*/
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use File;
 use App\Pnn;
 use App\Jobs\ImportCsv;
 use Illuminate\Console\Command;
@@ -13,7 +14,7 @@ class cronImportCsv extends Command
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var string 
      */
     protected $signature = 'command:import_csv';
 
@@ -41,9 +42,27 @@ class cronImportCsv extends Command
      */
     public function handle()
     {
-        if(is_readable($this->path_file)){
+       ini_set('memory_limit', '1024M');
+       ini_set('max_execution_time', 0);
+
+        if(is_readable($this->path_file)){    
             Pnn::query()->truncate();
             dispatch(new importCsv($this->path_file));
+
+            $pnns = Pnn::all();
+            if(count($pnns) > 0){
+                $data = json_encode($pnns);
+                $file = 'pnnpublico.json';
+                if(!File::exists(public_path().'/json')){
+                    File::makeDirectory(public_path().'/json');
+                }else{
+                    if(file_exists(public_path().'/json/pnnpublico.json')){
+                        unlink(public_path().'/json/pnnpublico.json');
+                    }
+                }
+                File::put(public_path().'\/json/'.$file, $data);
+                copy(public_path().'/json/pnnpublico.json', 'C:\Users\halexgs\Desktop\fmb\fmbspa\src\assets\pnnpublico.json');
+            }
         }else{
             dd("El archivo no existe o no es ligible.");
         }

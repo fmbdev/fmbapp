@@ -24,7 +24,7 @@ $router->group(['prefix' => 'api'], function() use ($router){
     ]);
 
     /*--- CampusCita Route ---*/
-    $router->get('/campuscita', [
+    $router->get('/campus_cita', [
         'uses'  => 'CampusCita\CampusCitaController@getAll'
     ]);
 
@@ -187,9 +187,9 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'WebService\UserController@landingSearchAInboundction'
     ]);
 
-    /*--- Import CSV ---*/
+    /*--- Import CSV ---
     $router->get('/pnn', [
         'uses' => 'Pnn\PnnController@getAll'
-    ]);
+    ]);*/
 
 });
