@@ -6,6 +6,7 @@ use File;
 use App\Pnn;
 use App\Jobs\ImportCsv;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class cronImportCsv extends Command
 {
@@ -49,7 +50,7 @@ class cronImportCsv extends Command
             Pnn::query()->truncate();
             dispatch(new importCsv($this->path_file));
 
-            $pnns = Pnn::all();
+            $pnns = Pnn::distinct()->get(['serie']);
             if(count($pnns) > 0){
                 $data = json_encode($pnns);
                 $file = 'pnnpublico.json';

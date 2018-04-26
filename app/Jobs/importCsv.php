@@ -32,16 +32,30 @@ class importCsv implements ShouldQueue
      */
     public function handle()
     {
+
         DB::connection()->getPdo()->exec("
             LOAD DATA LOCAL INFILE '{$this->url_file}'
             INTO TABLE pnn_publico
             FIELDS TERMINATED BY ','
             IGNORE 1 ROWS(
                 @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, 
-                @nir, @serie, @numeracion_inicial, @numeracion_final,
-                @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, @ignore
+                @nir, @serie, @ignore, @ignore, @ignore, @ignore, @ignore, 
+                @ignore, @ignore, @ignore, @ignore, @ignore
             )
-            set nir=@nir, serie=@serie, numeracion_inicial=@numeracion_inicial, numeracion_final=@numeracion_final, _serie=CONCAT(@nir, @serie)
+            set serie=CONCAT(@nir, @serie)
         ");
+
+        /*DB::connection()->getPdo()->exec("
+            LOAD DATA LOCAL INFILE '{$this->url_file}'
+            IGNORE
+            INTO TABLE pnn_publico
+            FIELDS TERMINATED BY ','
+            IGNORE 1 ROWS(
+                @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, 
+                @nir, @serie, @ignore, @ignore, @ignore, @ignore, @ignore, 
+                @ignore, @ignore, @ignore, @ignore, @ignore
+            )
+            set serie=CONCAT(@nir, @serie)
+        ");*/
     }
 }

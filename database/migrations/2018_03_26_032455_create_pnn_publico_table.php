@@ -15,12 +15,7 @@ class CreatePnnPublicoTable extends Migration
     {
         Schema::create('pnn_publico', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nir');
             $table->string('serie');
-            $table->string('numeracion_inicial');
-            $table->string('numeracion_final');
-            $table->string('_serie');
-            $table->timestamps();
         });
     }
 
