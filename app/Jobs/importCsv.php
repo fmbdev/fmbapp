@@ -41,7 +41,7 @@ class importCsv implements ShouldQueue
                 @nir, @serie, @numeracion_inicial, @numeracion_final,
                 @ignore, @ignore, @ignore, @ignore, @ignore, @ignore, @ignore
             )
-            set nir=@nir, serie=@serie, numeracion_inicial=@numeracion_inicial, numeracion_final=@numeracion_final, _serie=CONCAT(@nir, @serie)
+            set serie=CONCAT(@nir, @serie)
         ");
     }
 }

@@ -49,7 +49,7 @@ class cronImportCsv extends Command
             Pnn::query()->truncate();
             dispatch(new importCsv($this->path_file));
 
-            $pnns = Pnn::all();
+            $pnns = Pnn::distinct()->get(['serie']);
             if(count($pnns) > 0){
                 $data = json_encode($pnns);
                 $file = 'pnnpublico.json';
