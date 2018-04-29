@@ -147,6 +147,11 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'AreaInteres\AreaInteresController@getAll'
     ]);
 
+    /*--- CampusNivel Interes Route ---*/
+    $router->get('/campus_nivel', [
+        'uses' => 'CampusNivel\CampusNivelController@getAll'
+    ]);
+
     /*--- Web Service ---*/
     $router->get('/landing', [
         'uses'  => 'WebService\UserController@getCars'
