@@ -103,8 +103,8 @@ $router->group(['prefix' => 'api'], function() use ($router){
     ]);
 
     /*--- Sub Tipo Actividad Route ---*/
-    $router->get('/sub_tipo_actividad', [
-        'uses'  => 'SubTipoActividad\SubTipoActividadController@getAll'
+    $router->get('/subsubtipo_actividad', [
+        'uses'  => 'SubSubTipoActividad\SubSubTipoActividadController@getAll'
     ]);
 
     /*--- Territorio Route ---*/

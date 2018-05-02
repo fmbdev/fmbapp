@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\SubTipoActividad;
+namespace App\Http\Controllers\SubSubTipoActividad;
 
-use App\SubTipoActividad;
+use App\SubSubTipoActividad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SubTipoActividadController extends Controller
+class SubSubTipoActividadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class SubTipoActividadController extends Controller
      */
     public function getAll()
     {
-        $subtipoactividad = SubTipoActividad::all();
-        return response()->json($subtipoactividad, 200);
+        $subsubtipoactividad = SubSubTipoActividad::all();
+        return response()->json($subsubtipoactividad, 200);
     }
 
     /**

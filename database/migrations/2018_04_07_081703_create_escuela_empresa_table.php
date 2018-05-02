@@ -19,7 +19,7 @@ class CreateEscuelaEmpresaTable extends Migration
             $table->string('Name');
             $table->string('crmit_calidadid');
             $table->string('crmit_descturno1');
-            $table->string('crmit_descturno2');
+            $table->string('crmit_empresaescuela');
             $table->string('crmit_descturno3');
             $table->integer('id');
             $table->timestamps();
