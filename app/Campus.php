@@ -11,4 +11,9 @@ class Campus extends Model
     protected $fillable = [
         "crmit_name", "crmit_codigounico", "crmit_tb_campusid"
     ];
+
+    public function carreras()
+    {
+        return $this->belongsToMany('App\Carrera');
+    }
 }

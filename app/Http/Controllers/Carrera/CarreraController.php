@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Carrera;
 
 use App\Carrera;
+use App\CarreraNivel;
+use App\CampusCarrera;
+use App\CarreraModalidad;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,12 +14,41 @@ class CarreraController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function getAll()
     {
         $carreras = Carrera::all();
         return response()->json($carreras, 200);
+    }
+
+    /**
+     * Display a listing of carreras by campus.
+     *
+     */
+    public function getCarrerasByCampus()
+    {
+        $carrerasByCampus = CampusCarrera::all();
+        return response()->json($carrerasByCampus, 200);
+    }
+
+    /**
+     * Display a listing of carreras by modalidad.
+     *
+     */
+    public function getCarrerasByNivel()
+    {
+        $carrerasByModalidad = CarreraModalidad::all();
+        return response()->json($carrerasByModalidad, 200);
+    }
+
+    /**
+     * Display a listing of carreras by modalidad.
+     *
+     */
+    public function getCarrerasByModalidad()
+    {
+        $carrerasByNivel = CarreraNivel::all();
+        return response()->json($carrerasByNivel, 200);
     }
 
     /**

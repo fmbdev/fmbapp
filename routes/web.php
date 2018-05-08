@@ -152,6 +152,25 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses' => 'CampusNivel\CampusNivelController@getAll'
     ]);
 
+    /*--- Carreras by campus Route ---*/
+    $router->get('/carreras_campus', [
+        'uses'  => 'Carrera\CarreraController@getCarrerasByCampus'
+    ]);
+
+    /*--- Carreras by nivel Route ---*/
+    $router->get('/carreras_nivel', [
+        'uses'  => 'Carrera\CarreraController@getCarrerasByNivel'
+    ]);
+
+    /*--- Carreras by modalidad Route ---*/
+    $router->get('/carreras_modalidad', [
+        'uses'  => 'Carrera\CarreraController@getCarrerasByModalidad'
+    ]);
+
+
+
+
+
     /*--- Web Service ---*/
     $router->get('/landing', [
         'uses'  => 'WebService\UserController@getCars'

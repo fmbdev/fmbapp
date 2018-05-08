@@ -19,6 +19,8 @@ class CampusController extends Controller
         return response()->json($campus, 200);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *

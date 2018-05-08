@@ -11,4 +11,9 @@ class Nivel extends Model
     protected $fillable = [
         'ID','crmit_name', 'crmit_codigounico'
     ];
+
+    public function carreras()
+    {
+        return $this->belongsToMany('App\Carrera');
+    }
 }

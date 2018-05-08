@@ -14,8 +14,9 @@ class CreateModalidadTable extends Migration
     public function up()
     {
         Schema::create('Modalidad', function (Blueprint $table) {
-            $table->decimal('crmit_codigounico', 10, 0);
-            $table->string('crmit_name');
+            $table->string('crmit_codigounico', 40);
+            $table->string('crmit_name', 100);
+            $table->primary('crmit_codigounico'); 
             $table->timestamps();
         });
     }

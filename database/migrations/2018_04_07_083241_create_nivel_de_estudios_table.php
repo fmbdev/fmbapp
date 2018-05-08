@@ -14,9 +14,9 @@ class CreateNivelDeEstudiosTable extends Migration
     public function up()
     {
         Schema::create('Nivel_de_Estudios', function (Blueprint $table) {
-            $table->string('crmit_codigounico');
-            $table->string('crmit_name');
-            $table->integer('ID');
+            $table->string('crmit_codigounico', 40);
+            $table->string('crmit_name', 100);
+            $table->primary('crmit_codigounico');
             $table->timestamps();
         });
     }

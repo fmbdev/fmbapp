@@ -14,7 +14,7 @@ class CreateCampusTable extends Migration
     public function up()
     {
         Schema::create('Campus', function (Blueprint $table) {
-            $table->string('crmit_tb_campusid', 38);
+            $table->string('crmit_tb_campusid', 40);
             $table->decimal('crmit_codigounico', 10, 0);
             $table->string('crmi_name');
             $table->primary('crmit_tb_campusid');

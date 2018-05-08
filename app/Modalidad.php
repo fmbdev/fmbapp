@@ -11,4 +11,9 @@ class Modalidad extends Model
     protected $fillable = [
         "crmit_codigounico", "crmit_name"
     ];
+
+    public function Carreras()
+    {
+        return $this->belongsToMany('App\Carrera');
+    }
 }
