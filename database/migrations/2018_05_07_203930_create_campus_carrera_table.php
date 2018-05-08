@@ -16,7 +16,9 @@ class CreateCampusCarreraTable extends Migration
         Schema::create('Campus_Carrera', function (Blueprint $table) {
             $table->string('campusId', 40);
             $table->string('carreraId', 40);
-            $table->primary(['campusId', 'carreraId']);
+            $table->string('nivelId', 40);
+            $table->string('modalidadId', 40);
+            $table->primary(['campusId', 'carreraId', 'nivelId', 'modalidadId']);
         });
     }
 
