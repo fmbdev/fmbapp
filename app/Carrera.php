@@ -24,6 +24,6 @@ class Carrera extends Model
 
     public function modalidades()
     {
-        return $this->belongsToMany('App\Modalidad', 'carreras_modalidad', 'carreraId', 'nivelId');
+        return $this->belongsToMany('App\Modalidad', 'carreras_modalidad', 'carreraId', 'modalidadId');
     }
 }
