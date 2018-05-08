@@ -25,10 +25,10 @@ class CarreraController extends Controller
      * Display a listing of carreras by campus.
      *
      */
-    public function getCarrerasByCampus()
+    public function getCampusCarreras()
     {
-        $carrerasByCampus = CampusCarrera::all();
-        return response()->json($carrerasByCampus, 200);
+        $campus_carreras = CampusCarrera::all();
+        return response()->json($campus_carreras, 200);
     }
 
     /**
