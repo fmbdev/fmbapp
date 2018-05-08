@@ -9,6 +9,6 @@ class CampusCarrera extends Model
     protected $table = 'campus_carrera';
 
     protected $fillable = [
-        'campusId', 'carreraId'
+        'campusId', 'carreraId', 'nivelId', 'modalidadId'
     ];
 }

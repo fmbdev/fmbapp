@@ -35,17 +35,17 @@ class CarreraController extends Controller
      * Display a listing of carreras by modalidad.
      *
      */
-    public function getCarrerasByNivel()
+    public function getCarrerasByModalidad()
     {
         $carrerasByModalidad = CarreraModalidad::all();
         return response()->json($carrerasByModalidad, 200);
     }
 
     /**
-     * Display a listing of carreras by modalidad.
+     * Display a listing of carreras by nivel.
      *
      */
-    public function getCarrerasByModalidad()
+    public function getCarrerasByNivel()
     {
         $carrerasByNivel = CarreraNivel::all();
         return response()->json($carrerasByNivel, 200);
