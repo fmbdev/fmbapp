@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubSubTipoActividad extends Model
 {
+    //protected $table = 'subysubsubtipo';
     protected $table = 'subsubtipo_actividad';
 
     protected $fillable = [
