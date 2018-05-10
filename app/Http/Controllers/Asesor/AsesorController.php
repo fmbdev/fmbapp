@@ -15,7 +15,7 @@ class AsesorController extends Controller
      */
     public function getAll()
     {
-        $asesore = Asesor::all();
+        $asesores = Asesor::all();
         return response()->json($asesores, 200);
     }
 

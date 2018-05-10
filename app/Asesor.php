@@ -9,6 +9,6 @@ class Asesor extends Model
     protected $table = "asesor cita";
 
     protected $fillable = [
-        'Nombre_Asesor'
+        'asesorid','Nombre_Asesor'
     ];
 }
