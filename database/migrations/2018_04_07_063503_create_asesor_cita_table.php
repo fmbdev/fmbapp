@@ -14,8 +14,9 @@ class CreateAsesorCitaTable extends Migration
     public function up()
     {
         Schema::create('Asesor_cita', function (Blueprint $table) {
+            $table->string('asesorid', 40);
             $table->string('Nombre_Asesor');
-            $table->timestamps();
+            $table->primary('asesorid');
         });
     }
 
