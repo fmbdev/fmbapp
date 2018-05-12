@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\EscuelaEmpresa;
+namespace App\Http\Controllers\ActividadAgenda;
 
-use App\EscuelaEmpresa;
+use App\ActividadAgenda;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EscuelaEmpresaController extends Controller
+class ActividadAgendaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,8 @@ class EscuelaEmpresaController extends Controller
      */
     public function getAll()
     {
-       ini_set('memory_limit', '1024M');
-       ini_set('max_execution_time', 0);
-
-        $escuelasempresas = EscuelaEmpresa::all();
-        return response()->json($escuelasempresas, 200);
+        $actividad_agendas = ActividadAgenda::all();
+        return response()->json($actividad_agendas, 200);
     }
 
     /**

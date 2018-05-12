@@ -157,6 +157,11 @@ $router->group(['prefix' => 'api'], function() use ($router){
         'uses'  => 'Carrera\CarreraController@getCampusCarreras'
     ]);
 
+     /*--- Actividad Agenda Route ---*/
+     $router->get('/actividad_agenda', [
+         'uses' => 'ActividadAgenda\ActividadAgendaController@getAll'
+     ]);
+
     /*--- Web Service ---*/
     $router->get('/landing', [
         'uses'  => 'WebService\UserController@getCars'
