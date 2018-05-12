@@ -162,6 +162,8 @@ $router->group(['prefix' => 'api'], function() use ($router){
          'uses' => 'ActividadAgenda\ActividadAgendaController@getAll'
      ]);
 
+
+
     /*--- Web Service ---*/
     $router->get('/landing', [
         'uses'  => 'WebService\UserController@getCars'
@@ -206,5 +208,13 @@ $router->group(['prefix' => 'api'], function() use ($router){
     $router->get('/pnn', [
         'uses' => 'Pnn\PnnController@getAll'
     ]);*/
+
+    $router->get('/getToken', [
+        'uses'  => 'WebService\RolController@getToken'
+    ]);
+
+    $router->get('/roles/{user_id}', [
+        'uses'  => 'WebService\RolController@getRoles'
+    ]);
 
 });
