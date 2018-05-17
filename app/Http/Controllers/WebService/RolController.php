@@ -31,13 +31,15 @@ class RolController extends Controller
 
     public function getToken(Request $resquet){
         $codigo = $resquet->code;
+        $url_redirect = "http://localhost:4200/?access_token=";
 
         $fields = array(
+            
         "grant_type"  => "authorization_code",
         "client_secret" => "mWw%2Fj1%2BeTbz86imXoTueZAxO8UxatD69KQwAWRcWFgs%3D",        
         "client_id" => "8b121322-84ec-4bb9-8929-6c64333775f6",
         "resource" => "https://laulatammxqa.crm.dynamics.com",
-        "redirect_uri" => "https://app.devmx.com.mx",
+        "redirect_uri" =>  $url_redirect,//"https://app.devmx.com.mx",
         "code" => $codigo,
         );
         
@@ -57,8 +59,9 @@ class RolController extends Controller
         //curl_setopt($ch,CURLOPT_TIMEOUT, 20);
         $response = curl_exec($ch);
         $co = json_decode($response); 
-                     
-        header('location: https://app.devmx.com.mx/?access_token='. $co->access_token);
+
+        
+        header('location:'. $url_redirect. $co->access_token);
     }
 
     /**
