@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebService;
+
+
+
 
 use DB;
 use App\Rol;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class RolController extends Controller
 {
@@ -12,7 +16,7 @@ class RolController extends Controller
      *
      * HEADER $token
      *
-     * @Rest\Get("/landing")
+     * @Rest\Get("/landing_rol")
      * @Rest\View
      * @return array
      *
@@ -26,20 +30,49 @@ class RolController extends Controller
                      'rol_landing.Landingurl as landing_url'
                  )->get();
          return response()->json($datos, 200);
-     }
- 
+    }
 
+    public function getRolUser($user_id){
+        $datos = DB::table('usuario')
+                 ->join('rol_landing','usuario.rol','=','rol_landing.RolID')
+                 ->where('usuario.DomainName',$user_id)
+                 ->select(
+                     'rol_landing.Rolidname as rol_name',
+                     'rol_landing.Landingurl as landing_url'
+                 )->get();
+         return response()->json($datos, 200);
+    }
+
+    /**
+     *
+     * HEADER $token
+     *
+     * @Rest\Get("/token2")
+     * @Rest\View
+     * @return array
+     *
+     */
+    public function getToken2(){
+         $datos = array('code' => 200, 'msg'=> "ejeomplo ");
+        return response()->json($datos, 200);
+    }
+ 
     public function getToken(Request $resquet){
         $codigo = $resquet->code;
-        $url_redirect = "http://localhost:4200/?access_token=";
+        /////////////////////////////////////////////
+        // url de configuración para prod o debug  //
+        /////////////////////////////////////////////
 
+        $url_debug = "http://localhost:4200";
+        $url_prod = "https://app.devmx.com.mx";
+        $connection_url = $url_prod;
         $fields = array(
             
         "grant_type"  => "authorization_code",
         "client_secret" => "mWw%2Fj1%2BeTbz86imXoTueZAxO8UxatD69KQwAWRcWFgs%3D",        
         "client_id" => "8b121322-84ec-4bb9-8929-6c64333775f6",
         "resource" => "https://laulatammxqa.crm.dynamics.com",
-        "redirect_uri" =>  $url_redirect,//"https://app.devmx.com.mx",
+        "redirect_uri" =>  $connection_url,
         "code" => $codigo,
         );
         
@@ -58,10 +91,18 @@ class RolController extends Controller
         //curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,3);
         //curl_setopt($ch,CURLOPT_TIMEOUT, 20);
         $response = curl_exec($ch);
-        $co = json_decode($response); 
+        if(!empty($response)){
+            $co = json_decode($response); 
+            header('location:'. $connection_url.'/?access_token='. $co->access_token);  
+            return response()->json('Deberia regresar', 200);
+        }else{
+            header('location:'. $connection_url);  
 
+            return response()->json('hub error', 200);
+
+        }
         
-        header('location:'. $url_redirect. $co->access_token);
+     
     }
 
     /**
@@ -118,5 +159,10 @@ class RolController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getTest(){
+        $datos = array('code' => '3000', 'message'=> 'prueba');
+        return response()->json($datos, 200);
     }
 }

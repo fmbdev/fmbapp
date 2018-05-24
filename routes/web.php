@@ -208,13 +208,16 @@ $router->group(['prefix' => 'api'], function() use ($router){
     $router->get('/pnn', [
         'uses' => 'Pnn\PnnController@getAll'
     ]);*/
-
     $router->get('/getToken', [
         'uses'  => 'WebService\RolController@getToken'
     ]);
 
     $router->get('/roles/{user_id}', [
         'uses'  => 'WebService\RolController@getRoles'
+    ]);
+
+    $router->get('/roles_perfil/{user_id}', [
+        'uses'  => 'WebService\RolController@getRolUser'
     ]);
 
 });
