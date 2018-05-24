@@ -162,6 +162,11 @@ $router->group(['prefix' => 'api'], function() use ($router){
          'uses' => 'ActividadAgenda\ActividadAgendaController@getAll'
      ]);
 
+     /*--- Calidad Route ---*/
+     $router->get('/calidad', [
+        'uses' => 'Calidad\CalidadController@getAll'
+    ]);
+
 
 
     /*--- Web Service ---*/
